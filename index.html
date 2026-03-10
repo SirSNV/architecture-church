@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тектоника христианского храма — интерактивный учебник</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>Тектоника христианского храма</h1>
+    <p class="subtitle">Интерактивный учебник о том, зачем нужны арки, своды, купола, колонны и как выбирать конструктивную схему.</p>
+    <div class="progress-wrap">
+      <label for="chapter-progress">Ваш прогресс</label>
+      <progress id="chapter-progress" value="0" max="100"></progress>
+      <span id="progress-text">0%</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" id="intro">
+      <h2>Как этим пользоваться</h2>
+      <ol>
+        <li>Читайте краткую теорию в каждом блоке.</li>
+        <li>Двигайте ползунки и переключатели — смотрите, как меняются силы и формы.</li>
+        <li>Проверяйте себя мини-квизами.</li>
+      </ol>
+      <p><strong>Цель:</strong> чтобы вы интуитивно понимали, почему в храме выбирают именно такую форму перекрытия и опор.</p>
+      <button class="complete-btn" data-section="intro">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="arches">
+      <h2>1) Арка: зачем она вообще нужна?</h2>
+      <p>Арка переводит нагрузку в <em>сжатие</em> и уводит её по кривой к опорам. Там, где балка бы треснула от изгиба, арка часто работает устойчивее при каменной кладке.</p>
+
+      <div class="control-grid">
+        <label>Ширина пролёта: <span id="span-value">8</span> м
+          <input id="span-input" type="range" min="4" max="20" step="1" value="8">
+        </label>
+        <label>Высота подъёма арки: <span id="rise-value">4</span> м
+          <input id="rise-input" type="range" min="2" max="12" step="1" value="4">
+        </label>
+        <label>Нагрузка кровли: <span id="load-value">6</span> усл. ед.
+          <input id="load-input" type="range" min="1" max="12" step="1" value="6">
+        </label>
+      </div>
+
+      <div class="viz">
+        <svg id="arch-svg" viewBox="0 0 700 300" aria-label="Схема арки"></svg>
+      </div>
+
+      <p id="arch-explanation" class="insight"></p>
+      <button class="complete-btn" data-section="arches">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="vaults">
+      <h2>2) Своды: цилиндрический, крестовый, ребристый</h2>
+      <p>Свод — это «пространственная арка». Разные типы по-разному передают нагрузку: на стены целиком или на конкретные точки-опоры.</p>
+
+      <div class="tabs">
+        <button class="tab active" data-vault="barrel">Цилиндрический</button>
+        <button class="tab" data-vault="groin">Крестовый</button>
+        <button class="tab" data-vault="rib">Ребристый</button>
+      </div>
+
+      <canvas id="vaultChart" width="640" height="280"></canvas>
+      <p id="vault-text" class="insight"></p>
+      <button class="complete-btn" data-section="vaults">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="domes">
+      <h2>3) Купол: образ неба и инженерная задача</h2>
+      <p>Купол создаёт большой центральный объём, но даёт значительный распор в основании. Нужны барабан, подпружные арки, паруса или тромпы.</p>
+
+      <div class="control-grid">
+        <label>Диаметр купола: <span id="dome-diam-val">12</span> м
+          <input id="dome-diam" type="range" min="6" max="30" value="12" step="1">
+        </label>
+        <label>Отношение высоты к радиусу: <span id="dome-ratio-val">0.9</span>
+          <input id="dome-ratio" type="range" min="0.5" max="1.4" value="0.9" step="0.1">
+        </label>
+      </div>
+
+      <canvas id="domeChart" width="640" height="280"></canvas>
+      <p id="dome-text" class="insight"></p>
+      <button class="complete-btn" data-section="domes">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="columns">
+      <h2>4) Колонны и столпы: тонкость, высота и устойчивость</h2>
+      <p>Чем тоньше и выше опора, тем выше риск потери устойчивости (потеря формы, «выброс»). Поэтому архитектура всегда балансирует между лёгкостью и запасом несущей способности.</p>
+
+      <div class="control-grid">
+        <label>Высота колонны: <span id="col-h-val">8</span> м
+          <input id="col-h" type="range" min="3" max="18" value="8" step="1">
+        </label>
+        <label>Диаметр колонны: <span id="col-d-val">0.8</span> м
+          <input id="col-d" type="range" min="0.4" max="2.0" value="0.8" step="0.1">
+        </label>
+        <label>Нагрузка сверху: <span id="col-load-val">7</span> усл. ед.
+          <input id="col-load" type="range" min="1" max="12" value="7" step="1">
+        </label>
+      </div>
+
+      <div id="column-meter" class="meter"><div id="column-fill"></div></div>
+      <p id="column-text" class="insight"></p>
+      <button class="complete-btn" data-section="columns">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="quiz">
+      <h2>5) Мини-квиз: проверьте интуицию</h2>
+      <div id="quiz-container"></div>
+      <button id="check-quiz">Проверить ответы</button>
+      <p id="quiz-result" class="insight"></p>
+      <button class="complete-btn" data-section="quiz">Отметить как изучено</button>
+    </section>
+
+    <section class="card" id="recipes">
+      <h2>6) Практические «рецепты выбора»</h2>
+      <ul>
+        <li><strong>Малый приходской храм:</strong> простой цилиндрический свод или лёгкий купол, умеренные пролёты, экономия на сложных контрсистемах.</li>
+        <li><strong>Торжественный соборный интерьер:</strong> доминирующий центральный купол + подпружные арки + акцентные столпы.</li>
+        <li><strong>Длинный неф:</strong> ритм колонн + аркады, чтобы держать крупные пролёты с читаемой тектоникой.</li>
+      </ul>
+      <button class="complete-btn" data-section="recipes">Отметить как изучено</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Сделано как локальный интерактивный учебник. Модели упрощены для обучения и интуиции, а не для проектных расчётов.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
