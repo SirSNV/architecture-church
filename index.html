@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тектоника христианского храма — интерактивный учебник</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Тектоника христианского храма</h1>
+        <p>
+          Интерактивный учебник о том, <strong>почему храм стоит именно так</strong>:
+          колонны, арки, своды, купола и передача нагрузок.
+        </p>
+        <a class="btn" href="#lesson-map">Начать обучение</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="lesson-map" class="card">
+        <h2>Образовательный маршрут</h2>
+        <ol>
+          <li><button data-step="0" class="step-btn active">1. Базовая механика: сжатие и распор</button></li>
+          <li><button data-step="1" class="step-btn">2. Колонны и опоры</button></li>
+          <li><button data-step="2" class="step-btn">3. Арка: зачем она нужна?</button></li>
+          <li><button data-step="3" class="step-btn">4. Своды: цилиндрический, крестовый, ребристый</button></li>
+          <li><button data-step="4" class="step-btn">5. Купол и барабан</button></li>
+          <li><button data-step="5" class="step-btn">6. Сборка храма как системы</button></li>
+        </ol>
+      </section>
+
+      <section id="lesson" class="card lesson-area">
+        <div>
+          <h2 id="lesson-title"></h2>
+          <p id="lesson-text"></p>
+          <div class="controls" id="dynamic-controls"></div>
+        </div>
+        <canvas id="tectonic-canvas" width="880" height="420" aria-label="Схема конструкций"></canvas>
+      </section>
+
+      <section class="card quiz">
+        <h2>Мини-квиз: проверь интуицию</h2>
+        <div id="quiz-container"></div>
+        <button id="check-quiz" class="btn">Проверить ответы</button>
+        <p id="quiz-result"></p>
+      </section>
+
+      <section class="card">
+        <h2>Как запускать локально</h2>
+        <p>
+          Просто откройте <code>index.html</code> в браузере, либо запустите статический сервер:
+        </p>
+        <pre><code>python3 -m http.server 8000
+# и перейти на http://localhost:8000</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>Сделано как учебный интерактив: визуализация + объяснение + вопросы.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
