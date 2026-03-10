@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тектоника христианского храма — интерактивный учебник</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Тектоника христианского храма</h1>
+      <p>
+        Интерактивный учебник о том, как работают колонны, арки, своды и купола
+        в храмовой архитектуре.
+      </p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Маршрут обучения</h2>
+        <ol id="lesson-list"></ol>
+        <div class="progress-block">
+          <h3>Прогресс</h3>
+          <progress id="progress" value="0" max="100"></progress>
+          <p id="progress-text">0% завершено</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <article>
+          <h2 id="lesson-title"></h2>
+          <p id="lesson-goal" class="goal"></p>
+          <div id="lesson-content"></div>
+        </article>
+
+        <section class="interactive-card">
+          <h3>Интерактивный эксперимент</h3>
+          <div id="controls"></div>
+          <canvas id="structure-canvas" width="640" height="360"></canvas>
+          <div class="metrics">
+            <canvas id="metrics-chart" height="130"></canvas>
+          </div>
+          <p id="insight"></p>
+        </section>
+
+        <section class="quiz-card">
+          <h3>Проверка понимания</h3>
+          <div id="quiz"></div>
+        </section>
+
+        <nav class="actions">
+          <button id="prev">← Назад</button>
+          <button id="mark-done">Отметить как изученное</button>
+          <button id="next">Дальше →</button>
+        </nav>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Совет: меняйте параметры и наблюдайте, как геометрия меняет усилия. Это
+        и есть суть тектоники — форма выражает работу конструкции.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
