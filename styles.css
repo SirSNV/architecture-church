@@ -1,0 +1,158 @@
+:root {
+  --bg: #f4f4f0;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --accent: #8a5a44;
+  --accent-soft: #d9b08c;
+  --ok: #2f855a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f8f7f2, #ece8df);
+}
+
+header,
+footer {
+  padding: 1rem 2rem;
+  background: #fffdf8;
+  border-bottom: 1px solid #e6ddcf;
+}
+
+footer {
+  border-top: 1px solid #e6ddcf;
+  border-bottom: none;
+  margin-top: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.sidebar,
+.content article,
+.interactive-card,
+.quiz-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(50, 35, 20, 0.08);
+}
+
+.sidebar ol {
+  padding-left: 1.2rem;
+}
+
+.sidebar li {
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.sidebar li.active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.sidebar li.done {
+  color: var(--ok);
+}
+
+.goal {
+  color: #5d4037;
+  font-weight: 600;
+}
+
+.interactive-card,
+.quiz-card,
+.actions {
+  margin-top: 1rem;
+}
+
+#controls {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+}
+
+.control {
+  background: #f8f3ee;
+  border: 1px solid #e6d7c8;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 170px;
+}
+
+.control label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+canvas {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e7dccd;
+  border-radius: 8px;
+}
+
+#insight {
+  background: #fbf8f2;
+  border-left: 4px solid var(--accent);
+  padding: 0.7rem;
+  border-radius: 4px;
+}
+
+.question {
+  margin-bottom: 0.8rem;
+  padding: 0.7rem;
+  background: #faf8f3;
+  border-radius: 8px;
+}
+
+.question button {
+  margin-right: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+button {
+  border: 1px solid #d3c0ad;
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7f1e8;
+}
+
+progress {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
